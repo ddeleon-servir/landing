@@ -1,0 +1,150 @@
+(function ($) {
+    ("use strict");
+    // Page loading
+    $(window).on("load", function () {
+        $("#preloader-active").fadeOut("slow");
+        $("body").css({
+            overflow: "visible",
+        });
+    });
+
+    /*------ ScrollUp -------- */
+    $.scrollUp({
+        scrollText: '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>',
+        easingType: "linear",
+        scrollSpeed: 900,
+        animation: "fade",
+    });
+
+    /*---- CounterUp ----*/
+    if ($(".count").length) {
+        $(".count").counterUp({
+            delay: 10,
+            time: 1000,
+        });
+    }
+
+    /*marquee image*/
+    if ($(".marque-images").length) {
+        $(".marque-images").each(function () {
+            var t = 0;
+            var i = 1;
+            var $this = $(this);
+            setInterval(function () {
+                t += i;
+                $this.css("background-position-x", -t + "px");
+            }, 10);
+        });
+    }
+    /*Data Fillter*/
+    $(".btn-filter").on("click", (e) => {
+        const filter = $(e.target).attr("data-filter");
+        console.log(filter);
+        const items = $(".item-content").parent();
+        for (item of items) {
+            if (filter == "") {
+                $(item).addClass("animate__animated animate__fadeIn");
+                $(item).parent().addClass("animate__animated animate__fadeIn");
+                $(item).removeClass("d-none");
+                $(item).parent().removeClass("d-none");
+
+                console.log("x");
+            } else if ($(item).attr("data-category") == filter) {
+                $(item).addClass("animate__animated animate__fadeIn");
+                $(item).parent().addClass("animate__animated animate__fadeIn");
+                $(item).removeClass("d-none");
+                $(item).parent().removeClass("d-none");
+            } else {
+                $(item).addClass("d-none");
+                $(item).parent().addClass("d-none");
+                $(item).removeClass("animate__animated animate__fadeIn");
+                $(item).parent().removeClass("animate__animated animate__fadeIn");
+            }
+        }
+    });
+    $(".swiper-group-logo-13").each(function () {
+        var swiper_payment_items = new Swiper(this, {
+            spaceBetween: 20,
+            slidesPerView: 13,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next-logo-13",
+                prevEl: ".swiper-button-prev-logo-13",
+            },
+            autoplay: {
+                delay: 1500,
+            },
+            breakpoints: {
+                1199: {
+                    slidesPerView: 13,
+                },
+                800: {
+                    slidesPerView: 10,
+                },
+                650: {
+                    slidesPerView: 8,
+                },
+                575: {
+                    slidesPerView: 6,
+                },
+                450: {
+                    slidesPerView: 5,
+                },
+                320: {
+                    slidesPerView: 4,
+                },
+                250: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+    });
+    $(".filter-nav button").on("click", function () {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    /*------ Wow Active ----*/
+    new WOW().init();
+
+    /*------ Text Type Countdown ----*/
+    var typeText = document.querySelector(".typeText")
+    var textToBeTypedArr = ["Solutions Agency", "Consulting Agency", "IT Services", "Digital Agencies", "Startups ",]
+    var index = 0, isAdding = true, textToBeTypedIndex = 0
+    function playAnim() {
+    setTimeout(function () {
+        typeText.innerText = textToBeTypedArr[textToBeTypedIndex].slice(0, index)
+        if (isAdding) {
+            if (index > textToBeTypedArr[textToBeTypedIndex].length) {
+                isAdding = false
+                typeText.classList.add("showAnim")
+                setTimeout(function () {
+                typeText.classList.remove("showAnim")
+                playAnim()
+                }, 500)
+                return
+            } else {
+                index++
+            }
+            } else {
+                if (index === 0) {
+                    isAdding = true
+                    textToBeTypedIndex = (textToBeTypedIndex + 1) % textToBeTypedArr.length
+                } else {
+                    index--
+                }
+            }
+            playAnim()
+        }, isAdding ? 120 : 60)
+    }
+    playAnim()
+
+    //Disable copy/cut/paste
+    // $("body").bind("cut copy paste", function (e) {
+    //     e.preventDefault();
+    // });
+
+    //Disable right click
+    // $("body").on("contextmenu", function (e) {
+    //     return false;
+    // });
+})(jQuery);

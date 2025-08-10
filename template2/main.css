@@ -1424,7 +1424,8 @@ Version: 1.0.0
   vertical-align: middle;
   display: inline-block;
   border: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  text-transform: none;
   text-align: center;
   background: var(--theme);
   color: var(--white-color);
@@ -1899,8 +1900,9 @@ Version: 1.0.0
   position: relative;
   padding-bottom: 4px;
   margin-bottom: -1px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: var(--title-color);
+  text-transform: none;
 }
 .line-btn i {
   margin-left: 5px;
@@ -5136,7 +5138,8 @@ h6 {
   font-style: normal;
   font-weight: 600;
   line-height: 28px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  text-transform: none;
 }
 .cta-wrap.style1 .section-title .title {
   color: var(--white);
@@ -11100,7 +11103,7 @@ h6 {
 .preloader p {
   font-size: 15px;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 8px;
   color: var(--theme);
 }
@@ -12127,7 +12130,8 @@ input.main-search-input::placeholder {
   font-style: normal;
   font-weight: 600;
   line-height: 28px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  text-transform: none;
   margin-bottom: 20px;
 }
 .section-title .subtitle span {
@@ -14503,3 +14507,58 @@ input.main-search-input::placeholder {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
 }/*# sourceMappingURL=main.css.map */
+
+
+/* Template 4 */
+
+.box-unlock {
+  padding: 120px 0px;
+  background: var(--white);
+}
+
+.box-unlock h1 span {
+  background: linear-gradient(89deg, #1f7dc0 -0.94%, #198050 107.13%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: var(--title-font);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%;
+}
+
+.box-unlock .text-lg-bold {
+  color: var(--text-1, #0f1012);
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 137.5% */
+}
+.box-unlock .card-unlock {
+  background: #F3F4F6;
+  border: 1px solid #6B96E1;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+.box-unlock .card-unlock .card-image {
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.box-unlock .card-unlock .card-image img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.box-unlock .card-unlock:hover {
+  background-color: #BDCEFA;
+  border: 1px solid #6B96E1;
+  box-shadow: 0px 6px 22px 0px rgba(0, 0, 0, 0.09);
+}
