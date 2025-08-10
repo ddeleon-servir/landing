@@ -12436,6 +12436,7 @@ input.main-search-input::placeholder {
   box-shadow: var(--box-shadow);
   position: relative;
   overflow: hidden;
+  height: 95%;
 }
 .service-card-items .icon-2 {
   position: absolute;
